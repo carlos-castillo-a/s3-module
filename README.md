@@ -26,10 +26,11 @@ module "s3_module" {
 }
 ``` 
 ### Result:
-`aws0001_prod_bucket_001_logging`  
-    ↑      ↑    ↑     ↑     ↑
- project  env  type  num  suffix 
- 
+```
+aws0001_prod_bucket_001_logging  
+   ↑      ↑    ↑     ↑     ↑
+project  env  type  num  suffix 
+```
 
 ## Input Variables
 The following is a list of input variables that can be input when calling this module:
