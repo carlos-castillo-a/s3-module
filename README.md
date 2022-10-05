@@ -39,7 +39,7 @@ The following is a list of input variables that can be input when calling this m
 | -----------------------| ------- | --------- | -------- | --------------------------------------------------------
 | project                | string  |           | ✓        | Project ID associate with bucket
 | environment            | string  |           | ✓        | Environment bucket is created in (dev, stg, prod, etc.)
-| num                    | string  | `1`       | ✓        | Number of buckets to be created
+| num                    | string  |           | ✓        | Number of buckets to be created
 | name_suffix            | string  |           |          | Suffix to the standard name of the bucket(s)
 | name_override          | string  |           |          | Override option to standard naming module
 | block_public_access    | bool    | `true`    |          | Block public access of objects in bucket (_All rules_)
