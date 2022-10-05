@@ -57,13 +57,13 @@ locals {
 
   default_project = var.project != "" ? var.project : "no-id"
 
-  name_prefix = format("%s_%s", local.default_project, local.env_id)
-  name        = format("%s_%s", local.name_prefix, local.type)
+  name_prefix = format("%s-%s", local.default_project, local.env_id)
+  name        = format("%s-%s", local.name_prefix, local.type)
 
-  name_suffix = var.name_suffix == "" ? "" : format("_%s", var.name_suffix)
+  name_suffix = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
 }
 
-### Naming module to standardize naming for resources
+### Naming module to standardize name mapping for resources
 module "naming" {
   source = "git::https://github.com/carlos-castillo-a/naming-module.git?ref=v1.0.0"
 }
