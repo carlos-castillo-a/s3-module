@@ -14,7 +14,6 @@ variable "name_suffix" {
 variable "num" {
   type        = number
   description = "(Required) Number of buckets to create"
-  default     = 1
 }
 
 variable "tags" {
@@ -41,13 +40,11 @@ variable "versioning_status" {
 variable "environment" {
   type        = string
   description = "(Required) Environment variable for bucket"
-  default     = "ENV"
 }
 
 variable "project" {
   type        = string
   description = "(Required) Project ID for bucket"
-  default     = "no-id"
 }
 
 ### Locals 
