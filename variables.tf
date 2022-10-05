@@ -65,5 +65,5 @@ locals {
 
 ### Naming module to standardize naming for resources
 module "naming" {
-  source = "https://github.com/carlos-castillo-a/naming-module.git?ref=v1.0.0"
+  source = "git::https://github.com/carlos-castillo-a/naming-module.git?ref=v1.0.0"
 }
