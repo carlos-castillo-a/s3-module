@@ -21,7 +21,6 @@ resource "aws_s3_bucket_public_access_block" "this" {
 # Versioning
 resource "aws_s3_bucket_versioning" "this" {
   count = local.versioning_enabled ? 1 : 0
-
   bucket = join("", aws_s3_bucket.this.*.id)
 
   versioning_configuration {
