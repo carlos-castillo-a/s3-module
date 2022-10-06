@@ -43,7 +43,7 @@ The following is a list of input variables that can be input when calling this m
 | name_suffix            | string  |           |          | Suffix to the standard name of the bucket(s)
 | name_override          | string  |           |          | Override option to standard naming module
 | block_public_access    | bool    | `true`    |          | Block public access of objects in bucket (_All rules_)
-| versioning_enabled     | bool    | `true`    |          | Enables/Disables versioning for objects in buckets
+| versioning_enabled     | bool    | `true`    |          | Determines versioning for objects in buckets
 | tags                   | map     |           |          | Map of tags to be applied to all resources
 
 

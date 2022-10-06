@@ -44,7 +44,7 @@ variable "tags" {
 # Public Access
 variable "block_public_access" {
   type        = bool
-  description = "(Optional) Blocl public access"
+  description = "(Optional) Blocks public access to objects"
   default     = true
 }
 
