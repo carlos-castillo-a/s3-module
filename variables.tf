@@ -1,3 +1,22 @@
+### Naming module to standardize name mapping for resources
+module "naming" {
+  source = "git::https://github.com/carlos-castillo-a/naming-module.git?ref=v1.0.0"
+}
+
+### Locals 
+locals {
+  env_id = lookup(module.naming.env-map, var.environment, "env")
+  type   = lookup(module.naming.type-map, "aws_s3_bucket", "typ")
+
+  default_project = var.project != "" ? var.project : "no-id"
+
+  name_prefix = format("%s-%s", local.default_project, local.env_id)
+  name        = format("%s-%s", local.name_prefix, local.type)
+
+  name_suffix        = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
+  varsioning_enabled = var.versioning_enabled
+}
+
 # Bucket Vars
 variable "name_override" {
   type        = string
@@ -30,10 +49,10 @@ variable "block_public_access" {
 }
 
 # Versioning
-variable "versioning_status" {
-  type        = string
+variable "versioning_enabled" {
+  type        = bool
   description = "(Optional) Versioning status"
-  default     = "Enabled"
+  default     = true
 }
 
 # Other Input Vars
@@ -45,22 +64,4 @@ variable "environment" {
 variable "project" {
   type        = string
   description = "(Required) Project ID for bucket"
-}
-
-### Locals 
-locals {
-  env_id = lookup(module.naming.env-map, var.environment, "env")
-  type   = lookup(module.naming.type-map, "aws_s3_bucket", "typ")
-
-  default_project = var.project != "" ? var.project : "no-id"
-
-  name_prefix = format("%s-%s", local.default_project, local.env_id)
-  name        = format("%s-%s", local.name_prefix, local.type)
-
-  name_suffix = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
-}
-
-### Naming module to standardize name mapping for resources
-module "naming" {
-  source = "git::https://github.com/carlos-castillo-a/naming-module.git?ref=v1.0.0"
 }
