@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "this" {
 
 # Public Access
 resource "aws_s3_bucket_public_access_block" "this" {
-  bucket = join("", aws_s3_bucket.this.*.id)
+  bucket = aws_s3_bucket.this.*.id
 
   block_public_acls       = var.block_public_access
   block_public_policy     = var.block_public_access
@@ -21,7 +21,7 @@ resource "aws_s3_bucket_public_access_block" "this" {
 # Versioning
 resource "aws_s3_bucket_versioning" "this" {
   count = local.versioning_enabled ? 1 : 0
-  bucket = join("", aws_s3_bucket.this.*.id)
+  bucket = aws_s3_bucket.this.*.id
 
   versioning_configuration {
     status = "Enabled"
@@ -30,7 +30,7 @@ resource "aws_s3_bucket_versioning" "this" {
 
 # Server Side Encryption (Always enabled)
 resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
-  bucket = join("", aws_s3_bucket.this.*.id)
+  bucket = aws_s3_bucket.this.*.id
 
   rule {
     apply_server_side_encryption_by_default {
@@ -42,7 +42,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 
 # ACL (always private)
 resource "aws_s3_bucket_acl" "this" {
-  bucket = join("", aws_s3_bucket.this.*.id)
+  bucket = aws_s3_bucket.this.*.id
 
   acl    = "private"
 }
