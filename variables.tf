@@ -14,7 +14,6 @@ locals {
   name        = format("%s-%s", local.name_prefix, local.type)
 
   name_suffix        = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
-  versioning_enabled = var.versioning_enabled
 }
 
 # Bucket Vars
