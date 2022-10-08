@@ -25,7 +25,7 @@ resource "aws_s3_bucket_versioning" "this" {
   bucket = aws_s3_bucket.this[count.index].id
 
   versioning_configuration {
-    status = (var.versioning_enabled == true ? "Enabled" : "Disabled")
+    status = (var.versioning_enabled == true ? "Enabled" : "Suspended")
   }
 }
 
