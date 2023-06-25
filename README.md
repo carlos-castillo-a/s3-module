@@ -3,7 +3,7 @@ This module defines the creation of an S3 Bucket with options on certain configu
 
 > _Note: KMS Encryption and Private ACL will be enabled using this module._
 
-The naming of the bucket is determined by a [Naming Module](https://github.com/carlos-castillo-a/naming-module) and Input Variables listed below.
+The naming of the ype of resource is determined by a [Naming Module](https://github.com/carlos-castillo-a/naming-module) and Input Variables listed below.
 
 ## Usage
  It is recommended to use `project` and `name_suffix` variables to acheive an ideal bucket name. An example of calling the module can be found below:
@@ -27,9 +27,9 @@ module "s3_module" {
 ``` 
 ### Result:
 ```
-aws0001_prod_bucket_001_logging  
-   ↑      ↑    ↑     ↑     ↑
-project  env  type  num  suffix 
+aws001_prod_bucket_001_logging  
+  ↑      ↑    ↑     ↑     ↑
+project env  type  num  suffix 
 ```
 
 ## Input Variables

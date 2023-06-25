@@ -1,6 +1,6 @@
 # Create bucket(s)
 resource "aws_s3_bucket" "this" {
-  bucket = var.name_override != "" ? format("%s-%03d", var.name_override, count.index + 1) : format("%s-%03d%s", local.name, count.index + 1, local.name_suffix)
+  bucket = var.name_override != "" ? format("aws%s-%03d", var.name_override, count.index + 1) : format("aws%s-%03d%s", local.name, count.index + 1, local.name_suffix)
   count  = var.num
 
   tags = merge({
