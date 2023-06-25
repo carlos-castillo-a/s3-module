@@ -10,10 +10,10 @@ locals {
 
   default_project = var.project != "" ? var.project : "no-id"
 
-  name_prefix = format("%s-%s", local.default_project, local.env_id)
+  name_prefix = format("aws%s-%s", local.default_project, local.env_id)
   name        = format("%s-%s", local.name_prefix, local.type)
 
-  name_suffix        = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
+  name_suffix = var.name_suffix == "" ? "" : format("-%s", var.name_suffix)
 }
 
 # Bucket Vars
