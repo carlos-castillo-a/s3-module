@@ -41,11 +41,3 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
     }
   }
 }
-
-# ACL (always private)
-resource "aws_s3_bucket_acl" "this" {
-  count  = length(aws_s3_bucket.this)
-  bucket = aws_s3_bucket.this[count.index].id
-
-  acl    = "private"
-}
